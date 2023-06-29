@@ -3,7 +3,7 @@ package com.hillel.lecture16;
 public class MyArrayList implements MyList {
 
     private static final int INITIAL_CAPACITY = 16;
-    private String[] elements = new String[INITIAL_CAPACITY];
+    private String[] elements = new String[INITIAL_CAPACITY]; // {"qwer", null, null, ... , null}
     private int size = 0;
 
     @Override
