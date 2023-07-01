@@ -85,4 +85,62 @@ class MyArrayListTest {
             Assertions.assertEquals(expected[i], list.get(i));
         }
     }
+    @Test
+    void getInvalidIndex() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> list.get(5));
+    }
+
+    @Test
+    void setInvalidIndex() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> list.set("value", 5));
+    }
+
+    @Test
+    void addInvalidIndex() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> list.add("value", 10));
+    }
+
+    @Test
+    void deleteInvalidIndex() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> list.delete(5));
+    }
+    @Test
+    void get() {
+        list.addLast("element#0");
+        list.addLast("element#1");
+
+        Assertions.assertEquals("element#0", list.get(0));
+        Assertions.assertEquals("element#1", list.get(1));
+    }
+
+    @Test
+    void set() {
+        list.addLast("element#0");
+        list.addLast("element#1");
+
+        list.set("new element", 1);
+
+        Assertions.assertEquals("element#0", list.get(0));
+        Assertions.assertEquals("new element", list.get(1));
+    }
+    @Test
+    void deleteLastFromEmptyList() {
+        list.deleteLast();
+
+        Assertions.assertTrue(list.isEmpty());
+        Assertions.assertEquals(0, list.size());
+    }
+
+    @Test
+    void deleteLast() {
+        list.addLast("element#0");
+        list.addLast("element#1");
+
+        list.deleteLast();
+
+        Assertions.assertFalse(list.isEmpty());
+        Assertions.assertEquals(1, list.size());
+        Assertions.assertEquals("element#0", list.get(0));
+        Assertions.assertEquals("element#0", list.toString());
+    }
 }

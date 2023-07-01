@@ -18,4 +18,6 @@ public interface MyList {
     int size();
 
     boolean isEmpty();
+
+    String toString();
 }
